@@ -8,7 +8,7 @@
 </template>
 
 <script>
-
+import { uploadFile, mergeFile, verifyFile } from '../api/jpUploadFileApi.js'
 export default {
   props: {},
   data () {
@@ -20,9 +20,6 @@ export default {
         fileChunks: [],
         worker: null
       },
-      uploadFileURL: "http://localhost:3000/uploadFile",
-      mergeFileURL: "http://localhost:3000/merge",
-      verifyFileURL: "http://localhost:3000/verify"
     };
   },
   computed: {},
