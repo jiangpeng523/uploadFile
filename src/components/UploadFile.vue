@@ -81,9 +81,6 @@ export default {
     },
     // 上传文件
     async uploadFile () {
-      // const formData = new FormData()
-      // formData
-      // axios.post('./uploadFile', this.container.file)
       if (!this.container.file) return
       // 未来如果根据网络波动来创建文件分块，这样可能会导致文件分块不一样，所以使用缓存。
       this.container.fileChunks = this.container.fileChunks || this.createFileChunks(this.container.file) // 生成文件分块

@@ -60,13 +60,13 @@ const responseError = function (error) {
 }
 
 // 设置请求拦截器
-axiosInstance.requestInterceptor.use(requestInterceptor, requestError)
+axiosInstance.interceptors.request.use(requestInterceptor, requestError)
 // 设置响应拦截器
-axiosInstance.responseInterceptor.use(responseInterceptor, responseError)
+axiosInstance.interceptors.response.use(responseInterceptor, responseError)
 // 设置路由守卫
-axiosInstance.beforeEach((to, from, next) => {
-  // todo 每次跳转页面的时候都需要检查一下是否有权限
+// axiosInstance.beforeEach((to, from, next) => {
+//   // todo 每次跳转页面的时候都需要检查一下是否有权限
 
-})
+// })
 
 export default axiosInstance

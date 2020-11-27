@@ -1,0 +1,29 @@
+{
+  "name": "jp-uploadfile",
+  "version": "1.0.0",
+  "description": "接收上传文件的node后台",
+  "main": "接收文件-axios.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangpeng523/uploadFile.git"
+  },
+  "keywords": [
+    "文件上传node后台"
+  ],
+  "author": "lange",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiangpeng523/uploadFile/issues"
+  },
+  "homepage": "https://github.com/jiangpeng523/uploadFile#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "multiparty": "^4.2.2"
+  },
+  "devDependencies": {
+    "qs": "^6.9.4"
+  }
+}

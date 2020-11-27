@@ -1,18 +1,20 @@
 import axios from './index.js'
 
-const HostName = 'localhost:3000/api/'
+const HostName = ''
 // 上传文件
-const uploadFile = param =>
-  axios.get(HostName + 'uploadFile', param)
+const uploadFile = (param, onUploadProgress, cancelToken) =>
+  axios.post(HostName + 'uploadFile', param, { onUploadProgress, cancelToken })
 // 合并文件
 const mergeFile = param =>
-  axios.get(HostName + 'merge', param)
+  axios.post(HostName + 'merge', param)
 // 校验文件
 const verifyFile = param =>
-  axios.get(HostName + 'verify', param)
-
+  axios.post(HostName + 'verify', param)
+const testCancel = (param, { onUploadProgress, cancelToken }) =>
+  axios.post(HostName + 'testCancel', param, { onUploadProgress, cancelToken })
 export default {
   uploadFile,
   mergeFile,
-  verifyFile
+  verifyFile,
+  testCancel
 }
