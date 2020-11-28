@@ -2,12 +2,8 @@
   <div class="jp-upload-file">
     <el-upload action="#" :multiple="false" :show-file-list="false" :auto-upload="false" ref="upload" :on-change="handleChange">
       <el-button slot="trigger" type="primary">选取文件</el-button>
-<<<<<<< HEAD
       <el-button style="margin-left: 10px;" type="primary" @click="uploadFile">上传</el-button>
       <el-button type="primary" @click="changeStatus">{{!isPuased? '暂停' : '恢复'}}</el-button>
-=======
-      <el-button style="margin-left: 10px;" type="success" @click="uploadFile">上传到服务器</el-button>
->>>>>>> 80be9c77b5f5d29f13e5f9be138a8d0b6e0030fe
     </el-upload>
     <div class="upload-percentage" v-show="container.file">
       <li class="upload-percentage__all">
@@ -46,11 +42,7 @@
 <script>
 //{ uploadFile, mergeFile, verifyFile }
 import jpUploadFileApi from '../api/jpUploadFileApi.js'
-<<<<<<< HEAD
 import axios from 'axios'
-import { resolve, reject } from 'q';
-=======
->>>>>>> 80be9c77b5f5d29f13e5f9be138a8d0b6e0030fe
 export default {
   props: {},
   data () {
@@ -97,7 +89,6 @@ export default {
       this.hashPercentage = 0
       this.container.file = file.raw // element 上传控件将原生的文件封装在 raw 属性中
     },
-<<<<<<< HEAD
     changeStatus () {
       if (this.isPuased === false) {
         this.parmaList.forEach(({ cancel }) => cancel())
@@ -108,16 +99,10 @@ export default {
     },
     async uploadFile () {
 
-=======
-    async uploadFile () {
-      // todo
-      // 1.文件分块
->>>>>>> 80be9c77b5f5d29f13e5f9be138a8d0b6e0030fe
       if (!this.container.file) {
         this.$message.warning('请上传文件')
         return
       }
-<<<<<<< HEAD
       // 1.文件分块
       this.container.fileChunks = this.container.fileChunks || this.createFileChunks(this.container.file) // 这里是确定是不是暂停，有缓存
       // 2.上传之前先校验服务端文件是否存在，但校验文件是否存在需要确保文件有一个唯一的key
@@ -273,29 +258,6 @@ export default {
         start()
       })
 
-=======
-      this.container.fileChunks = this.createFileChunks(this.container.file)
-      // 2.文件上传
-      const requestList = this.container.fileChunks.map((chunk, index) => {
-        const formData = new FormData()
-        formData.append('chunk', chunk)
-        formData.append('hash', hash)
-        formData.append('fileName', this.container.file.name)
-        formData.append('fileHash', fileHash)
-        return { formData }
-      }).map(async ({ formData }) => {
-        return await this.uploadFileChunks(formData)
-      })
-      await Promise.all(requestList)
-      // 3.合并文件
-      await this.mergeFileRequest()
-    },
-    async uploadFileChunks (formData) {
-      await jpUploadFileApi.uploadFile(formData)
-    },
-    async mergeFileRequest () {
-      await jpUploadFileApi.mergeFile()
->>>>>>> 80be9c77b5f5d29f13e5f9be138a8d0b6e0030fe
     },
     // 发送合并请求
     async mergeFileRequest () {
