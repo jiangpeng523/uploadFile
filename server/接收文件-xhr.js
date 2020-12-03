@@ -4,7 +4,7 @@ const fse = require('fs-extra');
 const multiparty = require('multiparty'); // 使用 multiparty 包处理前端传来的 FormData
 
 const server = http.createServer();
-const UPLOAD_DIR = path.resolve(__dirname, "..", "target"); // 大文件存储目录
+const UPLOAD_DIR = path.resolve(__dirname, "..", "downloads"); // 文件存储目录
 
 const extractExt = filename =>
   filename.slice(filename.lastIndexOf("."), filename.length); // 提取后缀名
